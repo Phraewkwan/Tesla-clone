@@ -1,22 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade';  // from liblary
 
 const Section = ({ title, desc, BgImg, leftBtnText, rightBtnText }) => {
     return (
         <Wrap bgImage={BgImg}>
-            <ItemText>
-                <h1>{title}</h1>
-                <p>{desc}</p>
-            </ItemText>
+            <Fade bottom>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{desc}</p>
+                </ItemText>
+            </Fade>
             <Buttons>
-                <ButtonGroup>
-                    <LeftButton>{leftBtnText}</LeftButton>
-                    {rightBtnText &&
-                        <RightButton>
-                            {rightBtnText}
-                        </RightButton>}
-                </ButtonGroup>
-                <DownArrow src="/images/down-arrow.svg" />
+                <Fade bottom>
+                    <ButtonGroup>
+                        <LeftButton>{leftBtnText}</LeftButton>
+                        {rightBtnText &&
+                            <RightButton>
+                                {rightBtnText} .
+                            </RightButton>}
+                    </ButtonGroup>
+                    <DownArrow src="/images/down-arrow.svg" />
+                </Fade>
             </Buttons>
         </Wrap>
     )
